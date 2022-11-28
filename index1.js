@@ -9,6 +9,7 @@ const partialsPath=path.join(__dirname,"/templetes/partials");
 const { getHomePage, getProductDetailsPage }=require('./controller/admin/homeController')
 const { getCartPage , postCartPage, deleteCartItem }=require('./controller/admin/cardcontroller')
 app.use(bodyParser.urlencoded({ extended: false }));
+const port = process.env.PORT || 8000;
 const routr=require('./index1_with');
 app.set("view engine","ejs")
 app.set("views",tempPath)
@@ -35,7 +36,7 @@ app.get("/*",(req,res)=>{
         errorcmt:"Opps page couldn't find"
     })
 })
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("index.js worked")
 })
 
